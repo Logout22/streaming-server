@@ -15,3 +15,5 @@ rtmp {
         }
 }" >> /etc/nginx/nginx.conf
 systemctl restart nginx
+iptables -A INPUT -m state --state NEW -p tcp --dport 1935 -j ACCEPT
+netfilter-persistent save
